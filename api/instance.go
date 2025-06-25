@@ -85,17 +85,17 @@ func (i *InstanceAPI) CreateInstance(req models.CreateInstanceRequest) (string, 
 	return instanceID, nil
 }
 
-func (i *InstanceAPI) StartInstance(id string) (*models.InstanceInfo, error) {
+func (i *InstanceAPI) StartInstance(id string) error {
 	uri := i.root + "/" + id + "/start"
 	method := http.MethodPut
 	body := ""
 	payload := strings.NewReader(body)
 	headers := generateHeader(i.client, method, uri, nil, []byte(body))
-	resp, err := httpRequest(i.client.HttpClient, i.client.BaseURL+uri, method, headers, payload, &models.InstanceInfo{})
+	_, err := httpRequest(i.client.HttpClient, i.client.BaseURL+uri, method, headers, payload, nil)
 	if err != nil {
-		return nil, err
+		return err
 	}
-	return resp.Data.(*models.InstanceInfo), nil
+	return nil
 }
 
 func (i *InstanceAPI) StopInstance(id string) error {

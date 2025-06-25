@@ -1,6 +1,7 @@
 package tests
 
 import (
+	"encoding/json"
 	"sdk/api"
 	"sdk/client"
 	"sdk/models"
@@ -19,7 +20,8 @@ func TestGetInstance(t *testing.T) {
 		t.Error(err)
 		return
 	}
-	t.Log(instance)
+	respByte, _ := json.Marshal(instance)
+	t.Log(string(respByte))
 }
 
 func TestListInstances(t *testing.T) {
@@ -29,7 +31,8 @@ func TestListInstances(t *testing.T) {
 		t.Error(err)
 		return
 	}
-	t.Log(resp)
+	respByte, _ := json.Marshal(resp)
+	t.Log(string(respByte))
 }
 
 func TestCreateInstance(t *testing.T) {
@@ -46,22 +49,22 @@ func TestCreateInstance(t *testing.T) {
 		Duration:       1,
 		AutoRenew:      "manual",
 	}
-	instance, err := insClient.CreateInstance(req)
+	instanceID, err := insClient.CreateInstance(req)
 	if err != nil {
 		t.Error(err)
 		return
 	}
-	t.Log(instance)
+	t.Log(instanceID)
 }
 
 func TestStartInstance(t *testing.T) {
 	insClient := api.NewInstanceAPI(initClient())
-	instance, err := insClient.StartInstance("kpIns2abwtx3wwerbeyy1b16")
+	err := insClient.StartInstance("kpIns2abwtx3wwerbeyy1b16")
 	if err != nil {
 		t.Error(err)
 		return
 	}
-	t.Log(instance)
+	t.Log("start instance success")
 }
 
 func TestStopInstance(t *testing.T) {

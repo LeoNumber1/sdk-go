@@ -97,7 +97,7 @@ func httpRequest(client *http.Client, url, method string, headers http.Header,
 		return
 	}
 	if response.StatusCode != http.StatusOK {
-		err = errors.New("call http response not 200 OK")
+		err = errors.New("call http response not 200 OK, response: " + string(body))
 		if err1 := json.Unmarshal(body, &resp); err1 == nil {
 			err = errors.New(resp.Message)
 			return
