@@ -117,10 +117,19 @@ type AdditionalInfo struct {
 }
 
 type ListInstancesResponse struct {
-	Pagination struct {
-		Page  int `json:"page"`
-		Size  int `json:"size"`
-		Total int `json:"total"`
-	} `json:"pagination"`
-	Result []*InstanceInfo `json:"result"`
+	Pagination Pagination      `json:"pagination"`
+	Result     []*InstanceInfo `json:"result"`
+}
+
+type CreateInstanceRequest struct {
+	MachineID      string `json:"machine_id"`       // 机器ID
+	ReqGPUAmount   int32  `json:"req_gpu_amount"`   // 请求GPU数量
+	ImageType      string `json:"image_type"`       // 镜像类型 官方镜像 用户自定义镜像
+	Image          string `json:"image"`            // 镜像ID (官方镜像)
+	PrivateImage   string `json:"private_image"`    // 用户自定义镜像ID
+	InstanceName   string `json:"instance_name"`    // 实例名称
+	ExpandDataDisk int64  `json:"expand_data_disk"` // 扩容数据盘大小
+	SkuID          string `json:"sku_id"`           // 计费类型 按量计费 包年包月
+	Duration       int64  `json:"duration"`         // 时长
+	AutoRenew      string `json:"auto_renew"`       // auto 自动续费  manual 手动续费
 }

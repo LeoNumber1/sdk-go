@@ -5,3 +5,9 @@ type Response struct {
 	Message string      `json:"message"`
 	Data    interface{} `json:"data"`
 }
+
+type Pagination struct {
+	Page  int `json:"page"`
+	Size  int `json:"size"`
+	Total int `json:"total"`
+}
