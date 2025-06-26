@@ -1,7 +1,7 @@
 package tests
 
 import (
-	"sdk/api"
+	"github.com/LeoNumber1/sdk-go/api"
 	"testing"
 )
 

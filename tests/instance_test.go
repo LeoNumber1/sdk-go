@@ -2,9 +2,9 @@ package tests
 
 import (
 	"encoding/json"
-	"sdk/api"
-	"sdk/client"
-	"sdk/models"
+	"github.com/LeoNumber1/sdk-go/api"
+	"github.com/LeoNumber1/sdk-go/client"
+	"github.com/LeoNumber1/sdk-go/models"
 	"testing"
 )
 

@@ -1,10 +1,10 @@
 package api
 
 import (
+	"github.com/LeoNumber1/sdk-go/client"
+	"github.com/LeoNumber1/sdk-go/models"
 	"net/http"
 	"net/url"
-	"sdk/client"
-	"sdk/models"
 	"strconv"
 	"strings"
 )
