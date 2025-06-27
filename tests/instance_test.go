@@ -9,8 +9,11 @@ import (
 )
 
 func initClient() *client.Client {
-	return client.NewClient("http://localhost:3000", "JWUNAEYW-BY-OWWTKKJY",
-		"xxx")
+	return client.NewClient(client.Config{
+		BaseURL:   "https://ikaopu.cn",
+		AccessKey: "JWUNAEYW-BY-OWWTKKJY",
+		SecretKey: "xxx",
+	})
 }
 
 func TestGetInstance(t *testing.T) {
