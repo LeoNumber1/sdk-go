@@ -9,9 +9,9 @@ See examples in [tests](tests).
 
 You can contact liyuan@ikaopu.cn if you have any question.
 
-- Install
+- Install `Recommend using the latest tags`
 ```bash
-go get -u github.com/LeoNumber1/sdk-go@v0.0.1-alpha3
+go get -u github.com/LeoNumber1/sdk-go@v0.0.1-alpha4
 ```
 
 - then import it in your code
