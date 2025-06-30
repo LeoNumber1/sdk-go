@@ -1,6 +1,7 @@
 package tests
 
 import (
+	"encoding/json"
 	"github.com/LeoNumber1/sdk-go/api"
 	"testing"
 )
@@ -32,5 +33,6 @@ func TestListMarketImages(t *testing.T) {
 		t.Error(err)
 		return
 	}
-	t.Log(resp)
+	respByte, _ := json.Marshal(resp)
+	t.Log(string(respByte))
 }
